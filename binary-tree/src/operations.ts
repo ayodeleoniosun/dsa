@@ -6,7 +6,7 @@ const traversal = new Traversal();
 
 class Operations {
 
-    find(node: Node, target: number) {
+    find(node: Node, target: number): boolean {
         const values = traversal.breadthFirst(node);
         return values.includes(target);
     }
@@ -26,8 +26,8 @@ class Operations {
         return sum;
     }
 
-    sumRecursively(node: Node) {
-        if (!node) return false;
+    sumRecursively(node: Node): number {
+        if (!node) return 0;
 
         return node.val + this.sumRecursively(node.left) + this.sumRecursively(node.right);
     }

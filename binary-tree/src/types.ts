@@ -3,7 +3,7 @@ import {tree} from "./samples/binary-tree";
 
 class Types {
 
-    depth(node: Node) {
+    depth(node: Node): number {
         let depth = 0;
 
         while (node) {
@@ -14,13 +14,13 @@ class Types {
         return depth;
     }
 
-    isPerfectTree(root: Node) {
+    isPerfectTree(root: Node): boolean {
         const level = 0;
         const depth = this.depth(root);
         return this.checkPerfectTree(root, depth, level);
     }
 
-    checkPerfectTree(root: Node, depth, level) {
+    checkPerfectTree(root: Node, depth: number, level: number): boolean {
         if (!root) return true;
 
         if (!root.left && !root.right)
@@ -29,11 +29,11 @@ class Types {
         if (!root.left || !root.right)
             return false;
 
-        return this.checkPerfectTree(root.left, depth, level+1)
-            && this.checkPerfectTree(root.right, depth, level+1);
+        return this.checkPerfectTree(root.left, depth, level + 1)
+            && this.checkPerfectTree(root.right, depth, level + 1);
     }
 
-    isFullTree(node: Node) {
+    isFullTree(node: Node): boolean {
         if (!node) return true;
 
         //leaf node

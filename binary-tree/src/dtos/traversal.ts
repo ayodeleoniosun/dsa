@@ -2,7 +2,7 @@ import {Node} from "./node";
 
 export class Traversal {
 
-    preOrder(node: Node) {
+    preOrder(node: Node): Node {
         if (!node) return;
 
         console.log(node.val);
@@ -10,7 +10,7 @@ export class Traversal {
         this.preOrder(node.right);
     }
 
-    inOrder(node: Node) {
+    inOrder(node: Node): Node {
         if (!node) return;
 
         this.inOrder(node.left);
@@ -18,7 +18,7 @@ export class Traversal {
         this.inOrder(node.right);
     }
 
-    postOrder(node: Node) {
+    postOrder(node: Node): Node {
         if (!node) return;
 
         this.postOrder(node.left);
