@@ -41,6 +41,28 @@ class Operations {
         const values = traversal.breadthFirst(node);
         return Math.max(...values);
     }
+
+    maxDepth(node: Node): number {
+        if (!node) return 0;
+
+        return Math.max(this.maxDepth(node.left), this.maxDepth(node.right))+1;
+    }
+
+    height (node: Node): number {
+        if (!node) return 0;
+        let leftHeight: number = 0;
+        let rightHeight: number = 0;
+
+        if (node.left) {
+            leftHeight = 1 + this.height(node.left);
+        }
+
+        if (node.right) {
+            rightHeight = 1 + this.height(node.right);
+        }
+
+        return (leftHeight > rightHeight) ? leftHeight : rightHeight;
+    }
 }
 
 let operations = new Operations();
@@ -63,3 +85,9 @@ console.log("The minimum node is " + min);
 
 const max = operations.max(tree);
 console.log("The maximum node is " + max);
+
+const maxDepth = operations.maxDepth(tree);
+console.log("The maximum depth of the tree is " + maxDepth);
+
+const height = operations.height(tree);
+console.log("The height of the tree is " + height);
